@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/information/information",
+    "pages/shopinfo/shopinfo",
+    "pages/shopchart/shopchart",
+    "pages/shoplogin/shoplogin",
+    
+    "pages/groupinfo/groupinfo",
+    
+    "pages/shopprice/shopprice",
+    "pages/login/login",
+    "pages/parterlogin/parterlogin",
+    "pages/parterinfo/parterinfo",
+    "pages/shopbuy/shopbuy",
+    "pages/callme/callme",
+    "pages/edit/edit",
+    "pages/registor/registor",
+    
+    "pages/buy/buy",
+    "pages/card/card",
+    "pages/code/code",
+    "pages/find/find",
+    "pages/shopcard/shopcard",
+    "pages/shopshare/shopshare",
+    "pages/shopcallme/shopcallme"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "哈顿星球",
+    "navigationBarTextStyle": "black"
+  }
+}
