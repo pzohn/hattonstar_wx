@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/videoplay/videoplay",
+    "pages/liveplay/liveplay",
     "pages/information/information",
     "pages/shopinfo/shopinfo",
     "pages/shopchart/shopchart",
     "pages/shoplogin/shoplogin",
-    
     "pages/groupinfo/groupinfo",
-    
     "pages/shopprice/shopprice",
     "pages/login/login",
     "pages/parterlogin/parterlogin",
@@ -15,14 +15,14 @@
     "pages/callme/callme",
     "pages/edit/edit",
     "pages/registor/registor",
-    
     "pages/buy/buy",
     "pages/card/card",
     "pages/code/code",
     "pages/find/find",
     "pages/shopcard/shopcard",
     "pages/shopshare/shopshare",
-    "pages/shopcallme/shopcallme"
+    "pages/shopcallme/shopcallme",
+    "pages/vedio_detail/vedio_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
