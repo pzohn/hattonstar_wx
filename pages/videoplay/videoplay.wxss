@@ -72,8 +72,8 @@
 .btn{
   right: 10rpx;
   width: 80px;
-  background-color:#5ddb22;
-  height: 27px;
+  background-color:#FF5722;
+  height: 28px;
   border-radius: 25rpx;
   font-size: 14px;
   text-align: center;
