@@ -17,7 +17,7 @@
 }
 .record-image{
   margin: 12px 12px 0;
-  background: url('https://gw.alicdn.com/tfs/TB1n8cUmQOWBuNjSsppXXXPgpXa-894-1131.jpg') no-repeat center center;
+  background: no-repeat center center;
   background-size: cover;
   padding-top: 110%;
 }

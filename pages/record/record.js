@@ -1,15 +1,82 @@
-// pages/index/release/release.js
 var app = getApp()
 Page({
   data: {
     j: 1,//帧动画初始图片  
     isSpeaking: false,//是否正在说话  
-    voices: [],//音频数组  
+    voices: [],//音频数组
+
+    recordingTimeqwe: 0,//录音计时
+    setInter: ""//录音名称
   },
+
   onLoad: function () {
+    var loginCode = wx.getStorageSync('loginCode');
+    if (loginCode == "") {
+      app.globalData.loginFlag = false;
+    } else {
+      app.globalData.loginFlag = true;
+      app.globalData.phone = loginCode;
+    }
   },
+
+
+  //录音计时器
+  recordingTimer: function () {
+    var that = this;
+    //将计时器赋值给setInter
+    that.data.setInter = setInterval(
+      function () {
+        var time = that.data.recordingTimeqwe + 1;
+        that.setData({
+          recordingTimeqwe: time
+        })
+      }
+      , 1000);
+  },
+
+
+  //开始录音
+  openRecording: function () {
+    var that = this;
+    const options = {
+      duration: 60000, //指定录音的时长，单位 ms，最大为10分钟（600000），默认为1分钟（60000）
+      sampleRate: 16000, //采样率
+      numberOfChannels: 1, //录音通道数
+      encodeBitRate: 96000, //编码码率
+      format: 'mp3', //音频格式，有效值 aac/mp3
+      frameSize: 50, //指定帧大小，单位 KB
+    }
+    //开始录音计时   
+    that.recordingTimer();
+    //开始录音
+    var recorderManager = wx.getRecorderManager();
+    recorderManager.start(options);
+    recorderManager.onStart(() => {
+      console.log('。。。开始录音。。。')
+    });
+    //错误回调
+    recorderManager.onError((res) => {
+      console.log(res);
+    })
+  },
+
   //手指按下  
   touchdown: function () {
+    if (app.globalData.loginFlag == false){
+      wx.showModal({
+        title: '错误提示',
+        content: '用户登录,请登录!',
+        confirmText: '登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../loginnew/loginnew',
+            })
+          }
+        }
+      })
+      return;
+    }
     console.log("手指按下了...")
     console.log("new date : " + new Date)
     var _this = this;
@@ -17,97 +84,60 @@ Page({
     this.setData({
       isSpeaking: true
     })
-    //开始录音  
-    wx.startRecord({
-      success: function (res) {
-        //临时路径,下次进入小程序时无法正常使用  
-        var tempFilePath = res.tempFilePath
-        console.log("tempFilePath: " + tempFilePath)
-        //持久保存  
-        wx.saveFile({
-          tempFilePath: tempFilePath,
-          success: function (res) {
-            //持久路径  
-            //本地文件存储的大小限制为 100M  
-            var savedFilePath = res.savedFilePath
-            console.log("savedFilePath: " + savedFilePath)
-          }
-        })
-        wx.showToast({
-          title: '恭喜!录音成功',
-          icon: 'success',
-          duration: 1000
-        })
-        //获取录音音频列表  
-        wx.getSavedFileList({
-          success: function (res) {
-            var voices = [];
-            for (var i = 0; i < res.fileList.length; i++) {
-              //格式化时间  
-              var createTime = new Date(res.fileList[i].createTime)
-              //将音频大小B转为KB  
-              var size = (res.fileList[i].size / 1024).toFixed(2);
-              var voice = { filePath: res.fileList[i].filePath, createTime: createTime, size: size };
-              console.log("文件路径: " + res.fileList[i].filePath)
-              console.log("文件时间: " + createTime)
-              console.log("文件大小: " + size)
-              voices = voices.concat(voice);
-            }
-            _this.setData({
-              voices: voices
-            })
-          }
-        })
-      },
-      fail: function (res) {
-        //录音失败  
-        wx.showModal({
-          title: '提示',
-          content: '录音的姿势不对!',
-          showCancel: false,
-          success: function (res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-              return
-            }
-          }
-        })
-      }
+
+    _this.openRecording();
+  },
+
+  //结束录音
+  shutRecording: function () {
+    var that = this;
+    var recorderManager = wx.getRecorderManager();
+    recorderManager.stop();
+    recorderManager.onStop((res) => {
+      console.log('。。停止录音。。', res.tempFilePath)
+      const { tempFilePath } = res;
+      //结束录音计时  
+      clearInterval(that.data.setInter);
+      //上传录音
+      wx.uploadFile({
+        url: 'https://www.hattonstar.com/upload',
+        filePath: tempFilePath,
+        name: "file",//后台要绑定的名称
+        header: {
+          "Content-Type": "multipart/form-data"
+        },
+        //参数绑定
+        formData: {
+          'phone': '18303741618'
+        },
+        success: function (ress) {
+          console.log(res);
+          wx.showToast({
+            title: '保存完成',
+            icon: 'success',
+            duration: 2000
+          })
+        },
+        fail: function (ress) {
+          console.log("。。录音保存失败。。");
+        }
+      })
     })
   },
+
   //手指抬起  
   touchup: function () {
+    if (app.globalData.loginFlag == false) {
+      return;
+    }
     console.log("手指抬起了...")
     this.setData({
       isSpeaking: false,
     })
     clearInterval(this.timer)
-    wx.stopRecord()
+    this.shutRecording();
   },
   //点击播放录音  
-  gotoPlay: function (e) {
-    var filePath = e.currentTarget.dataset.key;
-    //点击开始播放  
-    wx.showToast({
-      title: '开始播放',
-      icon: 'success',
-      duration: 1000
-    })
-
-    this.audioCtx = wx.createAudioContext('myAudio')
-    this.audioCtx.setSrc('https://www.yztcc.com/luyin1.m4a')
-    this.audioCtx.play()
-    // wx.playVoice({
-    //   filePath: 'https://www.yztcc.com/luyin1.m4a',
-    //   success: function () {
-    //     wx.showToast({
-    //       title: '播放结束',
-    //       icon: 'success',
-    //       duration: 1000
-    //     })
-    //   }
-    // })
-  }
 })
 //麦克风帧动画  
 function speaking() {

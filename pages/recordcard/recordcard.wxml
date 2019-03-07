@@ -1,7 +1,7 @@
 <view class="record-container">
   <view>
     <view class="record-body">
-      <view class="record-image">
+      <view class="record-image" style="background-image:url('{{image_url}}')">
       </view>
       <text>
         声音里的故事 纹路里的秘密

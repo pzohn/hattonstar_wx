@@ -70,6 +70,9 @@ App({
     group_parent_num:0,
     group_food_num: 0,
     group_car_num: 0,
-    group_class:0
+    group_class:0,
+    loginFlag: false,
+    postcard_image_url:'',
+    postcard_audio_url:''
   }
 })

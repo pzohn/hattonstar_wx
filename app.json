@@ -25,7 +25,8 @@
     "pages/shopcard/shopcard",
     "pages/shopshare/shopshare",
     "pages/shopcallme/shopcallme",
-    "pages/vedio_detail/vedio_detail"
+    "pages/vedio_detail/vedio_detail",
+	"pages/loginnew/loginnew"
   ],
   "window": {
     "backgroundTextStyle": "light",
