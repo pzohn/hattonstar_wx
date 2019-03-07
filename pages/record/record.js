@@ -6,7 +6,9 @@ Page({
     voices: [],//音频数组
 
     recordingTimeqwe: 0,//录音计时
-    setInter: ""//录音名称
+    setInter: "",//录音名称
+
+    image_url: 'https://www.hattonstar.com/postcard.jpg'
   },
 
   onLoad: function () {

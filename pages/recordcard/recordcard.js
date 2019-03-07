@@ -53,6 +53,7 @@ Page({
   },
 
   getCard:function(){
+    var _this = this;
     wx.request({
       url: 'https://www.hattonstar.com/getPostcard',
       data: {
@@ -60,12 +61,11 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        app.globalData.postcard_image_url = res.data.food;
-        app.globalData.shop_car = res.data.car;
-        app.globalData.share_date = res.data.share_date;
-        wx.redirectTo({
-          url: '../shopshare/shopshare',
-        })
+        app.globalData.postcard_image_url = res.data.img_url;
+        app.globalData.postcard_audio_url = res.data.audio_url;
+        _this.setData({
+          image_url: app.globalData.postcard_image_url
+        });
       },
       fail: function (res) {
         wx.showModal({
@@ -74,7 +74,7 @@ Page({
           success: function (res) {
             if (res.confirm) {
               wx.redirectTo({
-                url: '../shoplogin/shoplogin',
+                url: '../loginnew/loginnew',
               })
             }
           }

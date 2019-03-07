@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -19,7 +20,7 @@ Page({
   onReady: function () {
     var page = this;
     page.innerAudioContext = wx.createInnerAudioContext(); 
-    var voicePath = 'http://hattonstar.com/luyin1.m4a';   
+    var voicePath = app.globalData.postcard_audio_url;   
     page.innerAudioContext.src = voicePath;
     page.innerAudioContext.play();
     wx.setInnerAudioOption({

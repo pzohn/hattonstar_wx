@@ -1,7 +1,7 @@
 /* pages/index/release/release.wxss */
 .ccc
 {
-  background: url('https://www.hattonstar.com/card/6.jpg') no-repeat center center;
+  background:no-repeat center center;
   height: 100%;
   padding-top: 160%;
   background-size: cover;
@@ -19,7 +19,7 @@
  
 .record-style{  
     position: fixed;  
-    bottom: 5%;  
+    bottom: 0%;  
     left: 0;  
     height: 120rpx;  
     width: 100%;
