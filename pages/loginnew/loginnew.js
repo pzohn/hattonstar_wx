@@ -79,7 +79,7 @@ Page({
             if (app.globalData.goto_flag == 1){
               console.log(222);
               wx.navigateTo({
-                url: '../playrecord/playrecord',
+                url: '../record/record',
               })
             }
             else if (app.globalData.goto_flag == 2){

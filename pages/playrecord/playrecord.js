@@ -20,7 +20,8 @@ Page({
   onReady: function () {
     var page = this;
     page.innerAudioContext = wx.createInnerAudioContext(); 
-    var voicePath = app.globalData.postcard_audio_url;   
+    var voicePath = app.globalData.postcard_audio_url;
+    console.log(voicePath); 
     page.innerAudioContext.src = voicePath;
     page.innerAudioContext.play();
     wx.setInnerAudioOption({
@@ -33,6 +34,7 @@ Page({
       }
     });
     page.innerAudioContext.onPlay((res) => {
+      console.log("bbb");
       page.setData({ loadingHidden:false,
         playHidden: true})
     })   

@@ -111,7 +111,7 @@ Page({
         },
         //参数绑定
         formData: {
-          'phone': '18303741618'
+          'phone': app.globalData.phone
         },
         success: function (ress) {
           console.log(res);
@@ -141,6 +141,11 @@ Page({
     this.shutRecording();
   },
   //点击播放录音  
+
+  clear:function(){
+    console.log(666);
+    wx.clearStorageSync();
+  },
 })
 //麦克风帧动画  
 function speaking() {

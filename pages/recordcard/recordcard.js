@@ -13,7 +13,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(111);
     var loginCode = wx.getStorageSync('loginCode');
     if (loginCode == "") {
       app.globalData.loginFlag = false;
@@ -55,6 +54,10 @@ Page({
 
   },
 
+  clear: function () {
+    wx.clearStorageSync();
+  },
+
   getCard:function(){
     var _this = this;
     wx.request({
@@ -65,6 +68,19 @@ Page({
       method: 'POST',
       success: function (res) {
         console.log(res);
+        if (res.data == ""){
+          wx.showModal({
+            content: '小朋友，你未参加声音收集令活动！',
+            showCancel:false,
+            success: function (res) {
+              if (res.confirm) {
+                wx.redirectTo({
+                  url: '../record/record',
+                })
+              }
+            }
+          })
+        }
         app.globalData.postcard_image_url = res.data.img_url;
         app.globalData.postcard_audio_url = res.data.audio_url;
         _this.setData({
