@@ -1,4 +1,5 @@
 var util = require("../../utils/util.js");
+var app = getApp();
 Page({
 
   /**
@@ -71,9 +72,22 @@ Page({
           {
             var loginCode = res.data.PHONE;
             wx.setStorageSync('loginCode', loginCode);
-            wx.navigateBack({
-              delta: 1
-            });
+            console.log(111);
+            // wx.navigateBack({
+            //   delta: 1
+            // });
+            if (app.globalData.goto_flag == 1){
+              console.log(222);
+              wx.navigateTo({
+                url: '../playrecord/playrecord',
+              })
+            }
+            else if (app.globalData.goto_flag == 2){
+              console.log(333);
+              wx.navigateTo({
+                url: '../recordcard/recordcard',
+              })
+            }
           }
           else
           {

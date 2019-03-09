@@ -2,6 +2,7 @@
   "pages": [
     "pages/recordcard/recordcard",
     "pages/record/record",
+    "pages/login/login",
     "pages/playrecord/playrecord",
     "pages/videoplay/videoplay",
     "pages/liveplay/liveplay",
@@ -11,7 +12,6 @@
     "pages/shoplogin/shoplogin",
     "pages/groupinfo/groupinfo",
     "pages/shopprice/shopprice",
-    "pages/login/login",
     "pages/parterlogin/parterlogin",
     "pages/parterinfo/parterinfo",
     "pages/shopbuy/shopbuy",
@@ -26,7 +26,7 @@
     "pages/shopshare/shopshare",
     "pages/shopcallme/shopcallme",
     "pages/vedio_detail/vedio_detail",
-	"pages/loginnew/loginnew"
+	  "pages/loginnew/loginnew"
   ],
   "window": {
     "backgroundTextStyle": "light",

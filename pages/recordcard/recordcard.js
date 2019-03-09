@@ -13,7 +13,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- 
+    console.log(111);
+    var loginCode = wx.getStorageSync('loginCode');
+    if (loginCode == "") {
+      app.globalData.loginFlag = false;
+    } else {
+      app.globalData.loginFlag = true;
+      app.globalData.phone = loginCode;
+      console.log(app.globalData.phone);
+    }
+    if (app.globalData.loginFlag == false) {
+      wx.showModal({
+        content: '用户未登录,请登录!',
+        confirmText: '登录',
+        showCancel: false,
+        success: function (res) {
+          app.globalData.goto_flag = 2;
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../loginnew/loginnew',
+            })
+          }
+        }
+      })
+      return;
+    }
+    this.getCard();
   },
 
   /**
@@ -27,29 +52,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var loginCode = wx.getStorageSync('loginCode');
-    if (loginCode == "") {
-      app.globalData.loginFlag = false;
-    } else {
-      app.globalData.loginFlag = true;
-      app.globalData.phone = loginCode;
-    }
-    if (app.globalData.loginFlag == false) {
-      wx.showModal({
-        content: '用户未登录,请登录!',
-        confirmText: '登录',
-        showCancel: false,
-        success: function (res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: '../loginnew/loginnew',
-            })
-          }
-        }
-      })
-      return;
-    }
-    this.getCard();
+
   },
 
   getCard:function(){
@@ -61,6 +64,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
+        console.log(res);
         app.globalData.postcard_image_url = res.data.img_url;
         app.globalData.postcard_audio_url = res.data.audio_url;
         _this.setData({

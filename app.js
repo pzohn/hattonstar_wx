@@ -73,6 +73,7 @@ App({
     group_class:0,
     loginFlag: false,
     postcard_image_url:'',
-    postcard_audio_url:''
+    postcard_audio_url:'',
+    goto_flag:0
   }
 })

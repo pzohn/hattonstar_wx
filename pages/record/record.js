@@ -70,6 +70,7 @@ Page({
         content: '用户登录,请登录!',
         confirmText: '登录',
         success: function (res) {
+          app.globalData.goto_flag = 1;
           if (res.confirm) {
             wx.navigateTo({
               url: '../loginnew/loginnew',
