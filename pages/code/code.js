@@ -10,11 +10,26 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     var size = this.setCanvasSize();//动态设置画布大小
     //var initUrl = this.data.placeholder;
-    var initUrl = options.phone + "";
+    var initUrl;
+    if (options.phone == undefined){
+      initUrl = options.postid + "";
+      initUrl = "https://www.hattonstar.com/b?postid=" + initUrl;
+    }else{
+      initUrl = options.phone + "";
+    }
     console.log(initUrl);
     this.createQrCode(initUrl, "mycanvas", size.w, size.h);
 
   },
+
+  save:function(){
+
+  },
+
+  share: function () {
+
+  },
+
   onReady: function () {
 
   },
@@ -78,6 +93,22 @@ Page({
       current: img, // 当前显示图片的http链接
       urls: [img] // 需要预览的图片http链接列表
     })
+  },
+
+  onShareAppMessage: function () {
+    var app = getApp();
+    var id = app.globalData.shop_id;
+    return {
+      title: '欢迎来到哈顿星球',
+      path: '/pages/login/login?shareid=' + id,
+      imageUrl: 'https://www.hattonstar.com/postcard.jpg',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
 
   formSubmit: function (e) {

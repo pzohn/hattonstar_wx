@@ -11,6 +11,23 @@ Page({
     image_url: 'https://www.hattonstar.com/postcard.jpg'
   },
 
+  onReady: function () {
+    var page = this;
+    page.innerAudioContext = wx.createInnerAudioContext();
+    var voicePath = 'https://www.hattonstar.com/info.mp3';
+    page.innerAudioContext.src = voicePath;
+    page.innerAudioContext.play();
+    wx.setInnerAudioOption({
+      obeyMuteSwitch: false,
+      success: function (e) {
+
+      },
+      fail: function (e) {
+
+      }
+    });
+  },
+
   onLoad: function () {
     var loginCode = wx.getStorageSync('loginCode');
     if (loginCode == "") {
@@ -119,6 +136,9 @@ Page({
             title: '保存完成',
             icon: 'success',
             duration: 2000
+          });
+          wx.navigateTo({
+            url: '../recordcard/recordcard',
           })
         },
         fail: function (ress) {

@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/code/code",
     "pages/recordcard/recordcard",
-    "pages/login/login",
     "pages/record/record",
-    
+    "pages/login/login",
     "pages/playrecord/playrecord",
     "pages/videoplay/videoplay",
     "pages/liveplay/liveplay",
@@ -21,7 +21,7 @@
     "pages/registor/registor",
     "pages/buy/buy",
     "pages/card/card",
-    "pages/code/code",
+    
     "pages/find/find",
     "pages/shopcard/shopcard",
     "pages/shopshare/shopshare",

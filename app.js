@@ -74,6 +74,7 @@ App({
     loginFlag: false,
     postcard_image_url:'',
     postcard_audio_url:'',
+    postcard_id: 0,
     goto_flag:0
   }
 })

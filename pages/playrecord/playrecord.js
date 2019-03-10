@@ -5,7 +5,7 @@ Page({
    */
   data: {
     loadingHidden: true,
-    playHidden: true,
+    playHidden: false,
     src: ''
   },
   /**
@@ -34,12 +34,10 @@ Page({
       }
     });
     page.innerAudioContext.onPlay((res) => {
-      console.log("bbb");
       page.setData({ loadingHidden:false,
         playHidden: true})
     })   
     page.innerAudioContext.onEnded((res) => {
-      console.log("fff");
       page.setData({ 
         playHidden: false,
         loadingHidden: true
@@ -50,6 +48,12 @@ Page({
   play:function() {
     var page = this;
     page.innerAudioContext.play();
+  },
+
+  code: function () {
+    wx.navigateTo({
+      url: '../code/code?postid=' + app.globalData.postcard_id,
+    })
   },
   /**
    * 生s命周期函数--监听页面显示

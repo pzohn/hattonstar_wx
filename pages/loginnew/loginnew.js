@@ -72,12 +72,10 @@ Page({
           {
             var loginCode = res.data.PHONE;
             wx.setStorageSync('loginCode', loginCode);
-            console.log(111);
             // wx.navigateBack({
             //   delta: 1
             // });
             if (app.globalData.goto_flag == 1){
-              console.log(222);
               wx.navigateTo({
                 url: '../record/record',
               })

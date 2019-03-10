@@ -25,10 +25,10 @@
     width: 100%;
 }  
 .btn-style{ 
-  width: 66%;
+  width: 40%;
   border-radius: 6px;
-  background-color: greenyellow;
-  color: #26A5FF;
+  background-color:#006b57;
+  color: white;
 }  
   
 .sound-style{  
