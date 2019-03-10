@@ -75,6 +75,7 @@ App({
     postcard_image_url:'',
     postcard_audio_url:'',
     postcard_id: 0,
-    goto_flag:0
+    goto_flag:0,
+    postcard_code_url: ''
   }
 })

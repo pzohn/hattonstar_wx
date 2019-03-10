@@ -1,20 +1,28 @@
 var QR = require("../../utils/qrcode.js");
+var app = getApp();
 Page({
   data: {
     canvasHidden: false,
     maskHidden: true,
     imagePath: '',
-    placeholder: 'http://wxapp-union.com'//默认二维码生成文本
+    placeholder: 'http://wxapp-union.com',//默认二维码生成文本
+    
+    shareThree: {
+      avatar: '',
+      nickname: '',
+      awardMoney: '',
+      showShareModel: false
+      }
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     var size = this.setCanvasSize();//动态设置画布大小
     //var initUrl = this.data.placeholder;
     var initUrl;
-    if (options.phone == undefined){
+    if (options.phone == undefined) {
       initUrl = options.postid + "";
       initUrl = "https://www.hattonstar.com/b?postid=" + initUrl;
-    }else{
+    } else {
       initUrl = options.phone + "";
     }
     console.log(initUrl);
@@ -22,8 +30,15 @@ Page({
 
   },
 
-  save:function(){
-
+  save: function () {
+    this.setData({
+      shareThree: {
+        avatar: 'https://wx.qlogo.cn/mmopen/vi_32/gcs9nfrPIjZSfZvMmVCK81MpPbWqDspNfc2lRLqllfrpYT61RQWNMHXCfzSia7OiapOfXTjYFR6EF7JQZib5MRCdA/132',
+        nickname: '路人甲',
+        awardMoney: '哈哈',
+        showShareModel: true
+      }
+    })
   },
 
   share: function () {
@@ -79,6 +94,7 @@ Page({
           imagePath: tempFilePath,
           // canvasHidden:true
         });
+        app.globalData.postcard_code_url = tempFilePath;
       },
       fail: function (res) {
         console.log(res);
@@ -113,11 +129,11 @@ Page({
 
   formSubmit: function (e) {
     wx.chooseImage({
-      success: function(res) {
+      success: function (res) {
         var tempFilePaths = res.tempFilePaths;
         wx.saveFile({
           tempFilePath: tempFilePaths[0],
-          success:function(res){
+          success: function (res) {
             var saveFilePath = res.savedFilePath;
           }
         })

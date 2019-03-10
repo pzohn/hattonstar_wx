@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/sharepage/sharepage",
     "pages/code/code",
     "pages/recordcard/recordcard",
     "pages/record/record",
@@ -21,13 +22,12 @@
     "pages/registor/registor",
     "pages/buy/buy",
     "pages/card/card",
-    
     "pages/find/find",
     "pages/shopcard/shopcard",
     "pages/shopshare/shopshare",
     "pages/shopcallme/shopcallme",
     "pages/vedio_detail/vedio_detail",
-	  "pages/loginnew/loginnew"
+    "pages/loginnew/loginnew"
   ],
   "window": {
     "backgroundTextStyle": "light",
