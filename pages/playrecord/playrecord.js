@@ -52,7 +52,7 @@ Page({
 
   code: function () {
     wx.navigateTo({
-      url: '../code/code?postid=' + app.globalData.postcard_id,
+      url: '../sharepage/sharepage?postid=' + app.globalData.postcard_id,
     })
   },
   /**

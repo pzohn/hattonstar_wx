@@ -7,7 +7,7 @@
     <image wx:if="{{j==5}}" class="sound-style" src="/images/record/sound_5.png"></image>
   </view>
   
-  <view class="record-style">
+  <view class="record-style" hidden="{{playHidden}}">
     <button class="btn-style" bindtouchstart="touchdown" bindtouchend="touchup">按 下 录 音</button>
     
   </view>

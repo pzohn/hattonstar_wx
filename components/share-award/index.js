@@ -98,7 +98,8 @@ Component({
     canvasHeight: 0,
     imageWidth: 0,
     imageHeight: 0,
-    realShow: false
+    realShow: false,
+    localImageUrl:''
   },
 
   ready: function () {
@@ -114,6 +115,18 @@ Component({
         })
       },
     })
+    wx.getImageInfo({
+      src: app.globalData.postcard_image_url,//服务器返回的带参数的小程序码地址
+      success: function (res) {
+        let qrCodePath = res.path;
+        that.setData({
+          localImageUrl: qrCodePath
+        })
+      },
+      fail: function (res) {
+        //失败回调
+      }
+    });
   },
 
   /**
@@ -169,31 +182,34 @@ Component({
      * 下载头像
      */
     downloadAvatar: function () {
-      var that = this;
-      wx.downloadFile({
-        url: that.data.avatar,
-        success: function (res) {
-          that.setData({
-            avatarPath: res.tempFilePath
-          })
-          that.drawImage();
-        },
-        fail: function () {
-          that.showErrorModel('网络错误');
-        }
-      })
+      this.drawImage();
+      // var that = this;
+      // wx.downloadFile({
+      //   url: that.data.avatar,
+      //   success: function (res) {
+      //     that.setData({
+      //       avatarPath: res.tempFilePath
+      //     })
+      //     that.drawImage();
+      //   },
+      //   fail: function () {
+      //     that.showErrorModel('网络错误');
+      //   }
+      // })
     },
 
     drawImage: function () {
       var that = this;
       const ctx = wx.createCanvasContext('myCanvas', this);
-      // var bgPath = '../../image/share-award-bg.png';
-      var bgPath = 'https://www.hattonstar.com/card/10.jpg';
+      var bgPath = '../../images/10.jpg';
+      //var bgPath = 'https://www.hattonstar.com/card/10.jpg';
+
+      console.log(bgPath);
       ctx.setFillStyle(WHITE);
       ctx.fillRect(0, 0, windowWidth, windowHeight);
 
       //绘制背景图片
-      ctx.drawImage(bgPath, 0, 0, windowWidth, windowHeight * bgScale);
+      ctx.drawImage(that.data.localImageUrl, 0, 0, windowWidth, windowHeight * bgScale);
 
       //头像背景圆
       // ctx.arc(windowWidth / 2, avatarWidthScale / 2 * windowWidth + avatarHeightScale * windowHeight, (avatarWidthScale / 2) * windowWidth + avatarStrokeWidth, 0, 2 * Math.PI);

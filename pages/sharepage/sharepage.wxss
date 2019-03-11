@@ -21,12 +21,7 @@
 .canvas-box{position: fixed;top:999999rpx;left: 0}
 
 .btn{
-    width: 40%;
-    color: #999999;
-}
-
-.btn1{
-    width: 40%;
+    width: 50%;
     color: #999999;
 }
 
