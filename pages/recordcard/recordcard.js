@@ -13,36 +13,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var loginCode = wx.getStorageSync('loginCode');
-    if (loginCode == "") {
-      app.globalData.loginFlag = false;
-    } else {
-      app.globalData.loginFlag = true;
-      app.globalData.phone = loginCode;
-      console.log(app.globalData.phone);
-    }
-    if (app.globalData.loginFlag == false) {
-      wx.showModal({
-        content: '用户未登录,请登录!',
-        confirmText: '登录',
-        showCancel: false,
-        success: function (res) {
-          app.globalData.goto_flag = 2;
-          if (res.confirm) {
-            wx.navigateTo({
-              url: '../loginnew/loginnew',
-            })
-          }
-        }
-      })
-      return;
-    }
     var str = "" + options.q; 
     console.log(str);
     var arr = str.split("3D");
     var postid = arr[1];
     console.log(postid);
     if (postid == undefined) {
+      var loginCode = wx.getStorageSync('loginCode');
+      if (loginCode == "") {
+        app.globalData.loginFlag = false;
+      } else {
+        app.globalData.loginFlag = true;
+        app.globalData.phone = loginCode;
+        console.log(app.globalData.phone);
+      }
+      if (app.globalData.loginFlag == false) {
+        wx.showModal({
+          content: '用户未登录,请登录!',
+          confirmText: '登录',
+          showCancel: false,
+          success: function (res) {
+            app.globalData.goto_flag = 2;
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '../loginnew/loginnew',
+              })
+            }
+          }
+        })
+        return;
+      }
       this.getCard();
       return;
     }
