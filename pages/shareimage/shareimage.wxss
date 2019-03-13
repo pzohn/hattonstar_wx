@@ -1,0 +1,6 @@
+.share{
+  background: no-repeat center center;
+  height: 100%;
+  padding-top: 160%;
+  background-size: cover;
+}

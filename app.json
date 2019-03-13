@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/playrecord/playrecord",
     "pages/record/record",
+    "pages/login/login",
     "pages/sharepage/sharepage",
     "pages/code/code",
     "pages/recordcard/recordcard",
@@ -27,7 +27,8 @@
     "pages/shopshare/shopshare",
     "pages/shopcallme/shopcallme",
     "pages/vedio_detail/vedio_detail",
-    "pages/loginnew/loginnew"
+    "pages/loginnew/loginnew",
+    "pages/shareimage/shareimage"
   ],
   "window": {
     "backgroundTextStyle": "light",

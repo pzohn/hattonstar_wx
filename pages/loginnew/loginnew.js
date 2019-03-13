@@ -14,7 +14,7 @@ Page({
   },
 
   register:function(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../registor/registor',
     })
   },
@@ -46,7 +46,7 @@ Page({
             confirmText: '注册',
             success: function (res) {
               if (res.confirm) {
-                wx.navigateTo({
+                wx.redirectTo({
                   url: '../registor/registor',
                 })
               }
@@ -110,6 +110,7 @@ Page({
       }
     })
   },
+
   accountInput:function(e) {
     var content = e.detail.value;
     if(content != ''){

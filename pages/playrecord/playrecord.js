@@ -55,6 +55,12 @@ Page({
       url: '../sharepage/sharepage?postid=' + app.globalData.postcard_id,
     })
   },
+
+  share: function () {
+    wx.navigateTo({
+      url: '../shareimage/shareimage',
+    })
+  },
   /**
    * 生s命周期函数--监听页面显示
    */

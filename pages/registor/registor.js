@@ -1,4 +1,5 @@
 // pages/company/company.js
+var app = getApp();
 Page({
 
   /**
@@ -89,9 +90,15 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-                wx.redirectTo({
-                  url: '../login/login',
-                })
+                if (app.globalData.goto_flag == 0){
+                  wx.redirectTo({
+                    url: '../login/login',
+                  })
+                }else{
+                    wx.redirectTo({
+                      url: '../loginnew/loginnew',
+                    })
+                }
               }
             }
           })
