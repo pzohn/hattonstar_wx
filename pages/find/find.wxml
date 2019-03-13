@@ -3,7 +3,7 @@
   <view class="hr"></view>
   <view class="item">
      <text>电话号码：</text> 
-     <text>{{phone}}</text>
+     <input name="phone" value= '{{phone}}'></input>
   </view>
   <view class="item">
      <text>孩子姓名：</text> 

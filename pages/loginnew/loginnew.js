@@ -7,7 +7,6 @@ Page({
    */
   data: {
     disabled:true,
-    btnstate:"default",
     account: '',
     password: '',
     array: []
@@ -81,7 +80,6 @@ Page({
               })
             }
             else if (app.globalData.goto_flag == 2){
-              console.log(333);
               wx.navigateTo({
                 url: '../recordcard/recordcard',
               })
@@ -111,12 +109,18 @@ Page({
     })
   },
 
+  find:function(e){
+    wx.navigateTo({
+      url: '../find/find',
+    })
+  },
+
   accountInput:function(e) {
     var content = e.detail.value;
     if(content != ''){
-      this.setData({ disabled: false, btnstate: "primary", account:content});
+      this.setData({ disabled: false, account:content});
     }else{
-      this.setData({ disabled: true, btnstate: "default"});
+      this.setData({ disabled: true});
     }
   },
 

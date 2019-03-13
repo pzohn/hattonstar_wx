@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phone: ''
+
   },
 
   formSubmit: function (e) {
@@ -21,7 +21,7 @@ Page({
       url: 'https://www.hattonstar.com/resetPass',
       data: {
         type: 'update',
-        PHONE: this.data.phone,
+        PHONE: e.detail.value.phone,
         NAME: e.detail.value.name,
       },
       method: 'POST',
@@ -54,7 +54,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ phone: options.phone});
+    
   },
 
   /**

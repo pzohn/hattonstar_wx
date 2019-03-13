@@ -1,6 +1,4 @@
-.share{
-  background: no-repeat center center;
+.share image{
   height: 100%;
-  padding-top: 160%;
-  background-size: cover;
+  width: 100%;
 }

@@ -120,6 +120,12 @@ Page({
     }
   },
 
+  find: function (e) {
+    wx.navigateTo({
+      url: '../find/find',
+    })
+  },
+
   getFoodandCar: function () {
     var app = getApp();
     wx.request({

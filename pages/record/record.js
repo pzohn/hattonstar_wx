@@ -71,6 +71,10 @@ Page({
       format: 'mp3', //音频格式，有效值 aac/mp3
       frameSize: 50, //指定帧大小，单位 KB
     }
+
+    that.setData({
+      recordingTimeqwe: 0
+    })
     //开始录音计时   
     that.recordingTimer();
     //开始录音
@@ -120,10 +124,18 @@ Page({
     var recorderManager = wx.getRecorderManager();
     recorderManager.stop();
     recorderManager.onStop((res) => {
-      console.log('。。停止录音。。', res.tempFilePath)
+      console.log('。。停止录音。。', res.tempFilePath, that.data.recordingTimeqwe)
       const { tempFilePath } = res;
       //结束录音计时  
       clearInterval(that.data.setInter);
+      if (that.data.recordingTimeqwe < 2){
+        wx.showToast({
+          title: '请重新录制',
+          icon: 'success',
+          duration: 2000
+        });
+        return;
+      }
       //上传录音
       wx.uploadFile({
         url: 'https://www.hattonstar.com/upload',
@@ -169,7 +181,6 @@ Page({
   //点击播放录音  
 
   clear:function(){
-    console.log(666);
     wx.clearStorageSync();
   },
 })

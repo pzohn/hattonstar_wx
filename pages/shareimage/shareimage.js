@@ -15,6 +15,13 @@ Page({
 
   },
 
+  previewImage: function (e) {
+    var current = e.target.dataset.src;
+    wx.previewImage({
+      current: current,
+      urls: [current]
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
