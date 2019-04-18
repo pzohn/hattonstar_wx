@@ -14,10 +14,11 @@ Page({
    */
   onLoad: function (options) {
     var app = getApp();
+    console.log(app);
     if (app.globalData.shopId != 0){
       this.setData({ flag:true});
     }
-    if (app.globalData.phone == '18303741618'){
+    if (app.globalData.authority_id == 6){
       this.setData({ test: true });
     }
   },
