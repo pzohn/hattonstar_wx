@@ -1,5 +1,0 @@
-<video src='{{url}}'>
-</video>
-<view>
-{{title}}
-</view>

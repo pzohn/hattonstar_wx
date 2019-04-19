@@ -7,8 +7,6 @@
     "pages/sharepage/sharepage",
     "pages/code/code",
     "pages/recordcard/recordcard",
-    "pages/videoplay/videoplay",
-    "pages/liveplay/liveplay",
     "pages/information/information",
     "pages/shopinfo/shopinfo",
     "pages/shopchart/shopchart",
@@ -27,8 +25,6 @@
     "pages/shopcard/shopcard",
     "pages/shopshare/shopshare",
     "pages/shopcallme/shopcallme",
-    "pages/vedio_detail/vedio_detail",
-    
     "pages/shareimage/shareimage"
   ],
   "window": {

@@ -70,6 +70,7 @@ Page({
           if (res.data.PHONE != "")
           {
             var app = getApp();
+            console.log(res.data);
             app.globalData.id = res.data.ID;
             app.globalData.phone = res.data.PHONE;
             app.globalData.name = res.data.NAME;
@@ -80,6 +81,7 @@ Page({
             app.globalData.address = res.data.ADDRESS;
             app.globalData.carddesc = res.data.CARDDESC;
             app.globalData.cardnum = res.data.CARDNUM;
+            app.globalData.authority_id = res.data.AUTHORITY;
             if (app.globalData.shop_id == 0){
               wx.navigateTo({
                 url: '../information/information',
@@ -268,7 +270,7 @@ Page({
     var shopID = arr[1];
     if (shopID == undefined)
     {
-      
+      app.globalData.shop_id = 0;
     }
     else
     {
