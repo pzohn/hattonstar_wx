@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
     "pages/login/login",
     "pages/loginnew/loginnew",
     "pages/record/record",
@@ -32,5 +34,6 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "哈顿星球",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
