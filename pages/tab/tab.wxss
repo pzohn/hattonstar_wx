@@ -1,4 +1,10 @@
-
+.container{
+    width: 100%;
+    height: 100%;
+    position:fixed;
+    z-index: 999;
+    top: 0;
+}
 .nav {
     height: 80rpx;
     width: 100%;
@@ -9,9 +15,9 @@
     font-size: 16px;
     white-space: nowrap;
     position: fixed;
-    top: 0;
+    top: 78rpx;
     left: 0;
-    z-index: 999;
+    z-index: 99;
 }
 .nav-item {
     width: 20%;
@@ -22,30 +28,16 @@
     color: red;
 }
 
-.tab-content{
-    overflow-y: scroll;
-}
-
-
-.btn{
-  right: 10rpx;
-  width: 24%;
-  background:url('https://www.gfcamps.cn/images/wx_logo/tiyan.png') no-repeat center center;
-  background-size: cover;
-  height: 28px;
-  border-radius: 25rpx;
-  font-size: 14px;
-  text-align: center;
-  color: rgba(255,255,255,0);
-}
-
 /*搜索begin*/
 .search{
   display: flex;
   flex-direction: row;
-  padding: 10px;
   width: 95%;
   padding-bottom: 1px;
+  position: fixed;
+  top: 0rpx;
+  z-index: 99;
+  background: #f7f7f7;
 }
 .searchBg{
   background-color:#f2f2f2;
@@ -81,4 +73,91 @@
   border-radius: 5px;
   color: #fff
 }
-/*搜索恩典*/
+/*搜索end*/
+
+
+.video_container{
+  padding: 180rpx 25rpx;
+}
+
+/*轮播begin*/
+.video_swiper{
+  padding: 180rpx 25rpx;
+}
+swiper,swiper-item
+{
+   margin:0;
+   padding: 0;
+}
+.lunbo,.lunbo image{height: 330rpx;}
+.lunbo .wx-swiper-dots.wx-swiper-dots-horizontal{
+      margin-bottom: 10rpx;
+}
+.lunbo .wx-swiper-dot{
+    width: 14rpx;
+    display: inline-flex;
+    height: 14rpx;
+    vertical-align: sub; 
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    background:rgba(255,255,255,.5);
+    border-radius: 100%;
+}
+.lunbo .wx-swiper-dot::before{
+     content: '';
+     flex-grow: 1;
+} 
+.lunbo .wx-swiper-dot-active::before{
+     content: '';
+     flex-grow: 1;
+     background:rgba(255,255,255,1);
+     border-radius: 100%;
+}
+
+.slide-image{
+  width: 100%;vertical-align: top;display: block;
+}
+/*轮播end*/
+.type-item{
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.type-item + .type-item{
+  margin-top: 20rpx;
+}
+
+.type-img{
+  width: 100%;
+  height: 290rpx;
+  border-radius: 10rpx;
+  display: block;
+}
+
+.title{
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+}
+
+.title text{
+  left: 10rpx;
+  bottom: 20rpx;
+  color: black;
+  font-size: 28rpx;
+  font-weight: 500;
+  width: 74%;
+  padding-top: 5px;
+}
+
+.btn{
+  right: 10rpx;
+  width: 24%;
+  background:url('https://www.gfcamps.cn/images/wx_logo/tiyan.png') no-repeat center center;
+  background-size: cover;
+  height: 28px;
+  border-radius: 25rpx;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255,255,255,0);
+}
