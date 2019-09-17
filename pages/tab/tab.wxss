@@ -11,7 +11,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 99;
+    z-index: 999;
 }
 .nav-item {
     width: 20%;
@@ -25,3 +25,60 @@
 .tab-content{
     overflow-y: scroll;
 }
+
+
+.btn{
+  right: 10rpx;
+  width: 24%;
+  background:url('https://www.gfcamps.cn/images/wx_logo/tiyan.png') no-repeat center center;
+  background-size: cover;
+  height: 28px;
+  border-radius: 25rpx;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255,255,255,0);
+}
+
+/*搜索begin*/
+.search{
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  width: 95%;
+  padding-bottom: 1px;
+}
+.searchBg{
+  background-color:#f2f2f2;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  color: #999999;
+}
+.searchBg image{
+  margin-left: 5px;
+  margin-top:5px;
+}
+
+.search input{
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  font-weight:200;
+}
+
+.btn1{
+  font-size: 18px;
+  font-weight:300;
+  line-height: 40px;
+  margin-left: 5%;
+  border:1px solid #3385ff;
+  width:30%;
+  text-align: center;
+  background-color: #3385ff;
+  border-radius: 5px;
+  color: #fff
+}
+/*搜索恩典*/

@@ -1,16 +1,16 @@
 <view class="navbar">
 
  <view class="search">
-  <view class="searchBg">
-    <view>
-      <image src="../../images/sousuo.png" style="width:25px;height:25px;padding-top:2px;padding-right:5px;"></image>
+    <view class="searchBg">
+      <view>
+        <image src="../../images/sousuo.png" style="width:25px;height:25px;padding-top:2px;padding-right:5px;"></image>
+      </view>
+      <view>
+        <input type="text" placeholder="请输入关键字" placeholder-class="holder" bindinput="accountInput"           />
+      </view>
     </view>
-    <view>
-      <input type="text" placeholder="请输入关键字" placeholder-class="holder" bindinput="accountInput" />
-    </view>
+    <view class="btn1" bindtap="resetSearch">搜  索</view>
   </view>
-  <view class="btn1" bindtap="resetSearch">搜  索</view>
-</view>
 
   <view style='display: flex;'>
     <text  wx:for="{{navbar}}"
