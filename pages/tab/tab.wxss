@@ -161,3 +161,86 @@ swiper,swiper-item
   text-align: center;
   color: rgba(255,255,255,0);
 }
+
+
+
+
+
+.page-recommend .items-bottom{
+  width: 94%;
+  margin: 0 auto;
+  padding-top: 20rpx;
+  }
+.page-recommend .items-div{
+display: inline-block;
+width: 16%;
+margin-right: 3.5%;
+text-align: center;
+font-size: 24rpx;
+color: #222;
+}
+.page-recommend .items-div image{
+  height: 100rpx;
+  width: 100rpx;
+  }
+.page-recommend .items-div:last-child{
+  margin-right: 0;
+}
+.page-recommend .items-div .items-content{
+  margin-bottom: 20rpx;
+}
+
+.page-recommend {
+  margin-top: 20rpx;
+  background-color: #fff;
+  width: 100%;
+  display: block;
+}
+
+.recommend-bottom .recommend-content-price{
+  font-size: 28rpx;
+  display: block;
+  color: red;
+}
+
+.hotgoodcontainer{
+    display:flex;
+    flex-wrap: wrap;
+    width:100%;
+}
+.gooditem{
+    width:33.333333%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-size:12px;
+    box-sizing:border-box;
+    border: 0.5px solid #f7f7f7;
+    padding-bottom:6px;
+}
+.productimg{
+   width:100%;
+   height:100%;
+}
+.imgview{
+  width:100%;
+  height:120px;
+}
+
+.bztj{
+  width: 60%;
+  background:url('https://www.gfcamps.cn/images/wx_logo/bztj1.png') no-repeat center center;
+  background-size: cover;
+  height: 50px;
+  border-radius: 25rpx;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255,255,255,0);
+  margin-bottom: 2%
+}
+
+.goodprice{
+  font-size: 25rpx;
+  color:orangered;
+}

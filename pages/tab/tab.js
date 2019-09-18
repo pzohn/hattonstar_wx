@@ -49,6 +49,8 @@ Page({
         autoplay: true, //是否自动切换
         interval: 3000, //自动切换时间间隔,3s
         duration: 1000, //  滑动动画时长1s
+        recommend: [],
+        hotrec: []
     },
     //事件处理函数
     onLoad: function () {
@@ -106,7 +108,8 @@ Page({
         flag_1: false
       });
 
-      this.initData1(1, 1);     
+      this.initData1(1, 1);
+      this.initData2(); 
     },
 
   initData1: function (id, activity_id) {
@@ -123,6 +126,7 @@ Page({
         for (var i in res.data.swiper_pics) {
           var object = new Object();
           object = 'https://www.gfcamps.cn/images/' + res.data.swiper_pics[i];
+          console.log(object);
           imgUrls[i] = object;
         }
         page.setData({
@@ -195,6 +199,25 @@ Page({
         })
       }
     })
+  },
+
+  initData2: function (){
+    var page = this;
+    var recommend = [];
+    var hotrec = [];
+    for (let i = 0; i < 6; ++i){
+      var object = new Object();
+      object.url = 'https://www.gfcamps.cn/images/lunbo/guanniao.jpg';
+      object.title = '胡斌';
+      object.price = 12 + '元/天';
+      object.id = i;
+      recommend[i] = object;
+      hotrec[i] = object;
+    }
+    page.setData({
+      recommend: recommend,
+      hotrec: hotrec
+    });
   },
 
     switchNav(event){

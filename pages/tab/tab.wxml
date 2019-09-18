@@ -34,6 +34,38 @@
         </swiper-item>
     </block>
   </swiper>
+
+  <view class="page-recommend">
+    <button class='bztj'>精品推荐</button>
+
+  <view class='hotgoodcontainer'>
+      <view class='gooditem' wx:for="{{recommend}}" wx:key="recommend" wx:for-index="idx" wx:for-item="good" bindtap="recommendGood" id="{{good.id}}">
+        <view class='imgview'>
+          <image class='productimg' src='{{good.url}}'/>
+        </view>
+        <view>{{good.title}}</view>
+        <view class='goodprice'>{{good.price}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="page-hotrec">
+    <button class='bztj'>精品推荐</button>
+      <view class='hotgoodcontainer'>
+      <view class='gooditem' wx:key="gooditem" wx:for="{{hotrec}}" wx:for-index="idx" wx:for-item="good" bindtap="hotrecGood" id="{{good.id}}">
+        <view class='imgview'>
+          <image class='productimg' src='{{good.url}}'/>
+        </view>
+        <view>{{good.title}}</view>
+        <view class='goodprice'>{{good.price}}</view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
 </view>
 
 <view class='video_container' hidden="{{flag_2}}">
