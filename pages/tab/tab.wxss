@@ -240,6 +240,18 @@ color: #222;
   margin-bottom: 2%
 }
 
+.rxhw{
+  width: 60%;
+  background:url('https://www.gfcamps.cn/images/wx_logo/rxhw.png') no-repeat center center;
+  background-size: cover;
+  height: 50px;
+  border-radius: 25rpx;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255,255,255,0);
+  margin-bottom: 2%
+}
+
 .goodprice{
   font-size: 25rpx;
   color:orangered;

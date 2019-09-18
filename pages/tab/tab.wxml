@@ -50,7 +50,7 @@
   </view>
 
   <view class="page-hotrec">
-    <button class='bztj'>精品推荐</button>
+    <button class='rxhw'>热销好物</button>
       <view class='hotgoodcontainer'>
       <view class='gooditem' wx:key="gooditem" wx:for="{{hotrec}}" wx:for-index="idx" wx:for-item="good" bindtap="hotrecGood" id="{{good.id}}">
         <view class='imgview'>
