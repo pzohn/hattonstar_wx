@@ -89,6 +89,7 @@ swiper,swiper-item
    margin:0;
    padding: 0;
 }
+
 .lunbo,.lunbo image{height: 330rpx;}
 .lunbo .wx-swiper-dots.wx-swiper-dots-horizontal{
       margin-bottom: 10rpx;
