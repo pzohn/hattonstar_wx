@@ -44,6 +44,54 @@ Page({
     selectAllStatus: true, // 全选状态，默认全选
   },
 
+  onLoad: function (options) {
+    var app = getApp();
+    var loginCode = wx.getStorageSync('phone');
+    if (loginCode == "") {
+      app.globalData.loginFlag = false;
+    } else {
+      app.globalData.loginFlag = true;
+      app.globalData.phone = loginCode;
+    }
+    this.initData();
+  },
+
+  initData: function () {
+    var page = this;
+    wx.request({
+      url: 'https://www.gfcamps.cn/getWxInfoById',
+      data: {
+        id: id,
+        activity_id: activity_id
+      },
+      method: 'POST',
+      success: function (res) {
+        var imgUrls = [];
+        for (var i in res.data.swiper_pics) {
+          var object = new Object();
+          object = 'https://www.gfcamps.cn/images/' + res.data.swiper_pics[i];
+          console.log(object);
+          imgUrls[i] = object;
+        }
+        page.setData({
+          title: res.data.name,
+          imgUrls: imgUrls
+        });
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: '错误提示',
+          content: '服务器无响应，请联系工作人员!',
+          success: function (res) {
+            if (res.confirm) {
+            } else if (res.cancel) {
+            }
+          }
+        })
+      }
+    })
+  },
+
   onShow() {
     wx.showToast({
       title: '加载中',

@@ -11,25 +11,22 @@ Page({
                 text: '首页'
             },
             {
-              text: '自然营'
+              text: '蘑法食育'
             },
             {
-              text: '生存营'
+              text: '探索课堂'
             },
             {
-              text: '科学营'
+              text: '星创意'
             },
             {
-              text: '人文营'
+              text: '田园营期'
             },
             {
-              text: '科学营'
+              text: '亲子Culb'
             },
             {
-              text: '周边营'
-            },
-            {
-              text: '慕课营'
+              text: '未来营会'
             }
         ],
         currentTab: 0,
