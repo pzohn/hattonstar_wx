@@ -10,33 +10,34 @@ Page({
     // 默认展示数据
     hasList: true,
     // 商品列表数据
-    list: [{
-      id: 1,
-      title: '园艺大师抗皱精华露',
-      image: '../../image/shop_car/list_img.png',
-      pro_name: "30ml",
-      num: 1,
-      price: 180,
-      selected: true
-    },
-    {
-      id: 2,
-      title: '伊芙琳玫瑰护手霜',
-      image: '../../image/shop_car/list_tab1.png',
-      pro_name: "25g",
-      num: 1,
-      price: 62,
-      selected: true
-    },
-    {
-      id: 2,
-      title: '燕麦山羊乳舒缓护手霜',
-      image: '../../image/shop_car/list_tab2.png',
-      pro_name: "75ml",
-      num: 1,
-      price: 175,
-      selected: true
-    }
+    list: [
+    //   {
+    //   id: 1,
+    //   title: '园艺大师抗皱精华露',
+    //   image: '../../image/shop_car/list_img.png',
+    //   pro_name: "30ml",
+    //   num: 1,
+    //   price: 180,
+    //   selected: true
+    // },
+    // {
+    //   id: 2,
+    //   title: '伊芙琳玫瑰护手霜',
+    //   image: '../../image/shop_car/list_tab1.png',
+    //   pro_name: "25g",
+    //   num: 1,
+    //   price: 62,
+    //   selected: true
+    // },
+    // {
+    //   id: 2,
+    //   title: '燕麦山羊乳舒缓护手霜',
+    //   image: '../../image/shop_car/list_tab2.png',
+    //   pro_name: "75ml",
+    //   num: 1,
+    //   price: 175,
+    //   selected: true
+    // }
     ],
     // 金额
     totalPrice: 0, // 总价，初始为0
@@ -54,28 +55,35 @@ Page({
       app.globalData.phone = loginCode;
     }
     this.initData();
+
+    // 价格方法
+    this.count_price();
+    console.log(222);
   },
 
   initData: function () {
     var page = this;
     wx.request({
-      url: 'https://www.gfcamps.cn/getWxInfoById',
+      url: 'https://www.hattonstar.com/certsSelect',
       data: {
-        id: id,
-        activity_id: activity_id
+        username: '18567351516'
       },
       method: 'POST',
       success: function (res) {
-        var imgUrls = [];
-        for (var i in res.data.swiper_pics) {
+        var list = [];
+        for (var i in res.data) {
           var object = new Object();
-          object = 'https://www.gfcamps.cn/images/' + res.data.swiper_pics[i];
-          console.log(object);
-          imgUrls[i] = object;
+          object.id = res.data[i].id;
+          object.shoppingid = res.data[i].shoppingid;
+          object.image = 'https://www.hattonstar.com/images/' + res.data[i].title_pic;
+          object.price = res.data[i].price;
+          object.pro_name = "30ml";
+          object.num = res.data[i].count;
+          object.selected = true;
+          list[i] = object;
         }
         page.setData({
-          title: res.data.name,
-          imgUrls: imgUrls
+          list: list
         });
       },
       fail: function (res) {
@@ -101,6 +109,7 @@ Page({
 
     // 价格方法
     this.count_price();
+    console.log(111);
   },
   /**
    * 当前商品选中事件
