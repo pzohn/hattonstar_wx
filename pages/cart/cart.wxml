@@ -9,7 +9,7 @@
       <view class="list" wx:for="{{list}}" wx:key="{{index}}">
         <!-- radio选择IOCN -->
         <!-- <icon wx:if="{{item.selected}}"   type="success" color="#405A8F;" data-index="{{index}}" class="radio_chek" bindtap="selectList" /> -->
-        <image class='dele_edit' bindtap='deletes' data-index='{{index}}' style='display:{{edit_show}}' src='../../images/dete.png'></image>
+        <image class='dele_edit' bindtap='deletes' data-index='{{index}}'  data-id="{{item.id}}" data-shoppingid="{{item.shoppingid}}" style='display:{{edit_show}}' src='../../images/dete.png'></image>
         <image  wx:if="{{item.selected}}"  data-index="{{index}}" class="radio_chek" bindtap="selectList" src='../../images/radio_show.png'></image>
         <!-- <icon wx:else type="circle" class="radio_chek" data-index="{{index}}" bindtap="selectList" /> -->
 <!-- else -->

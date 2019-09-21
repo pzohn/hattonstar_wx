@@ -55,10 +55,6 @@ Page({
       app.globalData.phone = loginCode;
     }
     this.initData();
-
-    // 价格方法
-    this.count_price();
-    console.log(222);
   },
 
   initData: function () {
@@ -74,6 +70,7 @@ Page({
         for (var i in res.data) {
           var object = new Object();
           object.id = res.data[i].id;
+          object.title = res.data[i].name;
           object.shoppingid = res.data[i].shoppingid;
           object.image = 'https://www.hattonstar.com/images/' + res.data[i].title_pic;
           object.price = res.data[i].price;
@@ -85,6 +82,9 @@ Page({
         page.setData({
           list: list
         });
+
+        // 价格方法
+        page.count_price();
       },
       fail: function (res) {
         wx.showModal({
@@ -106,10 +106,6 @@ Page({
       icon: "loading",
       duration: 1000
     })
-
-    // 价格方法
-    this.count_price();
-    console.log(111);
   },
   /**
    * 当前商品选中事件
@@ -164,6 +160,7 @@ Page({
     var that = this;
     // 获取索引
     const index = e.currentTarget.dataset.index;
+    console.log(e);
     // 获取商品列表数据
     let list = this.data.list;
     wx.showModal({
