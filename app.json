@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/cart/cart",
+    "pages/buytan/buytan",
+    
     "pages/tab/tab",
     "pages/index/index",
     "pages/detail/detail",

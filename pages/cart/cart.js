@@ -160,7 +160,7 @@ Page({
     var that = this;
     // 获取索引
     const index = e.currentTarget.dataset.index;
-    console.log(e);
+    var id = e.currentTarget.dataset.id;
     // 获取商品列表数据
     let list = this.data.list;
     wx.showModal({
@@ -182,6 +182,7 @@ Page({
           } else {
             // 调用金额渲染数据
             that.count_price();
+            that.deleteCert(id);
           }
         } else {
           console.log(res);
@@ -193,6 +194,30 @@ Page({
     })
   },
 
+  deleteCert(id) {
+    var page = this;
+    wx.request({
+      url: 'https://www.hattonstar.com/certdelete',
+      data: {
+        id: id
+      },
+      method: 'POST',
+      success: function (res) {
+       
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: '错误提示',
+          content: '服务器无响应，请联系工作人员!',
+          success: function (res) {
+            if (res.confirm) {
+            } else if (res.cancel) {
+            }
+          }
+        })
+      }
+    })
+  },
 
 
   /**
