@@ -71,22 +71,6 @@ Page({
   
   },
 
-  hubin1: function () {
-    var app = getApp();
-    app.globalData.detailid = 38;
-    app.globalData.body = '哈顿星球-全天畅玩卡';
-    app.globalData.imageNo = 9;
-    this.card();
-  },
-
-  hubin2: function () {
-    var app = getApp();
-    app.globalData.detailid = 39;
-    app.globalData.body = '哈顿星球-半日畅玩卡';
-    app.globalData.imageNo = 8;
-    this.card();
-  },
-
   earth: function() {
     var app = getApp();
     app.globalData.detailid = 2;

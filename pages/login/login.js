@@ -259,6 +259,7 @@ Page({
    */
   onLoad: function (options) {
     var shareId = options.shareid;
+    console.log(options)
     var app = getApp();
     if (shareId == undefined) {
 
@@ -266,8 +267,9 @@ Page({
     else {
       app.globalData.shop_id = shareId;
     }
-    var str = "" + options.q; var arr = str.split("3D");
-    var shopID = arr[1];
+    // var str = "" + options.q; var arr = str.split("3D");
+    // var shopID = arr[1];
+    var shopID = options.shop;
     if (shopID == undefined)
     {
       app.globalData.shop_id = 0;

@@ -77,6 +77,7 @@ App({
     postcard_id: 0,
     goto_flag:0,
     postcard_code_url: '',
-    authority_id:0
+    authority_id: 0,
+    shop_id_wx:3
   }
 })

@@ -8,7 +8,7 @@ Page({
     cardprice:0,
     cardtime:'',
     playnum:0,
-    notice:'此卡为儿童专属'
+    notice:'包含一大一小'
   },
   pay:function() {
     wx.login({
@@ -80,6 +80,13 @@ Page({
                 }
                 else{
                   if (code) {
+                    console.log(code)
+                    console.log(app.globalData.body)
+                    console.log(app.globalData.detailid)
+                    console.log(app.globalData.phone)
+                    console.log(app.globalData.shop_id_wx)
+                    console.log(app.globalData.name)
+                    return
                     wx.request({
                       url: 'https://www.hattonstar.com/onPay',
                       data: {
@@ -87,7 +94,7 @@ Page({
                         body: app.globalData.body,
                         detail_id: app.globalData.detailid,
                         phone: app.globalData.phone,
-                        shop_id: app.globalData.shopId,
+                        shop_id: app.globalData.shop_id_wx,
                         name: app.globalData.name
                       },
                       method: 'POST',
