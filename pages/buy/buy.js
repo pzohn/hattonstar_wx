@@ -1,19 +1,31 @@
-// pages/buy/buy.js
+var app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     flag:false,
-    test:false
+    test:false,
+    cards:[
+      {
+        "title":"地球卡",
+        "price": 129,
+        "pic":"/images/list/star9.jpg",
+        "cardtype": "单次卡",
+        "playtype": "全日场",
+      },
+      {
+        "title": "太阳卡",
+        "price": 129,
+        "pic":"/images/list/star9.jpg",
+        "cardtype": "单次卡",
+        "playtype": "全日场",
+      },
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var app = getApp();
     if (app.globalData.shopId != 0){
       this.setData({ flag:true});
     }
@@ -22,6 +34,35 @@ Page({
     }
   },
 
+  init:function() {
+    wx.request({
+      url: 'https://www.hattonstar.com/getCard',
+      data: {
+        detail_id: app.globalData.detailid,
+      },
+      method: 'POST',
+      success: function (res) {
+        var app = getApp();
+        app.globalData.cardprice = res.data.PRICE;
+        app.globalData.cardtype = res.data.TYPE;
+        app.globalData.playnum = res.data.USENUM;
+        wx.redirectTo({
+          url: '../card/card',
+        })
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: '错误提示',
+          content: '服务器无响应，请联系工作人员!',
+          success: function (res) {
+            if (res.confirm) {
+              return;
+            }
+          }
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -218,7 +259,6 @@ Page({
   },
 
   card:function() {
-    var app = getApp();
     wx.request({
       url: 'https://www.hattonstar.com/getCard',
       data: {

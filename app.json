@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/buy/buy",
     "pages/login/login",
     "pages/shopshare/shopshare",
     "pages/parterinfo/parterinfo",
@@ -28,7 +29,7 @@
     "pages/callme/callme",
     "pages/edit/edit",
     "pages/registor/registor",
-    "pages/buy/buy",
+    
     "pages/card/card",
     "pages/find/find",
     "pages/shopcard/shopcard",
