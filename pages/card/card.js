@@ -202,6 +202,7 @@ Page({
   onLoad: function (options) {
     var app = getApp();
     var imageNo = app.globalData.imageNo;
+    console.log(app.globalData.cardtype)
     var type = app.globalData.cardtype;
     var typetime = '';
     if (type == 1) {

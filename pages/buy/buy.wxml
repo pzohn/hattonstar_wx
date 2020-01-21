@@ -1,10 +1,10 @@
 <view class="content">
   <view class="list">
-    <view wx:for="{{cards}}" wx:key="cards" wx:for-index="idx" wx:for-item="item" bindtap="recommendGood" id="{{item.id}}">
+    <view wx:for="{{cards}}" wx:key="cards" wx:for-index="idx" wx:for-item="item">
     <view class="hr"></view>
-     <view class="item" bindtap="hubin1" id="0">
+     <view class="item" bindtap="detail" id="{{item.index}}">
        <view>
-          <image src="{{item.pic_id}}" style="width:78px;height:60px;"></image>
+          <image src="{{item.pic}}" style="width:78px;height:60px;"></image>
        </view>
        <view class="desc">
          <view class="title">{{item.title}}</view>
@@ -13,7 +13,7 @@
             <view>
               <image src="/images/icon/xingxing.jpg" style="width:18px;height:17px;"></image>
             </view>
-            <view>{{item.cardtype}}</view>
+            <view>{{item.usetype}}</view>
             <view>
               <image src="/images/icon/yanjing.jpg" style="width:23px;height:17px;"></image>
             </view>
@@ -26,78 +26,3 @@
     </view><view class="hr"></view>
   </view>
 </view>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <view wx:for="{{cards}}" wx:key="cards" wx:for-index="idx" wx:for-item="item" bindtap="recommendGood" id="{{item.id}}">
-       <view class="list" bindtap="hubin1" id="0">
-        <image src="{{item.pic}}" style="width:78px;height:60px;"></image>
-        <view class="desc">
-          <view class="title">{{item.title}}</view>
-          <view class="count">
-              <view>{{item.price}}元</view>
-              <image src="/images/icon/xingxing.jpg" style="width:18px;height:17px;"></image>
-              <view>{{item.cardtype}}</view>
-              <image src="/images/icon/yanjing.jpg" style="width:23px;height:17px;"></image>
-              <view>{{item.playtype}}</view>
-            </view>
-          </view>
-        <view class="hr"></view>
-      </view>
-    </view> -->
-
-
-
-
-
-
-
-<!-- 
-    <view class="content">
-  <view class="list">
-    <view wx:for="{{cards}}" wx:key="cards" wx:for-index="idx" wx:for-item="item" bindtap="recommendGood" id="{{item.id}}">
-    <view class="hr"></view>
-     <view class="item" bindtap="hubin1" id="0">
-       <view>
-          <image src="/images/list/star9.jpg" style="width:78px;height:60px;"></image>
-       </view>
-       <view class="desc">
-         <view class="title">全天畅玩卡</view>
-         <view class="count">
-            <view>169元</view>
-            <view>
-              <image src="/images/icon/xingxing.jpg" style="width:18px;height:17px;"></image>
-            </view>
-            <view>单次卡</view>
-            <view>
-              <image src="/images/icon/yanjing.jpg" style="width:23px;height:17px;"></image>
-            </view>
-            <view>全日场</view>
-         </view>
-       </view>
-     </view>
-    
-    
-    </view><view class="hr"></view>
-  </view>
-</view> -->
