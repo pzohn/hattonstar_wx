@@ -9,11 +9,14 @@
        <view class="desc">
          <view class="title">{{item.title}}</view>
          <view class="count">
-            <view>{{item.price}}元</view>
             <view>
               <image src="/images/icon/xingxing.jpg" style="width:18px;height:17px;"></image>
             </view>
-            <view>{{item.usetype}}</view>
+            <view>{{item.price}}元</view>
+            <!-- <view>
+              <image src="/images/icon/xingxing.jpg" style="width:18px;height:17px;"></image>
+            </view>
+            <view>{{item.usetype}}</view> -->
             <view>
               <image src="/images/icon/yanjing.jpg" style="width:23px;height:17px;"></image>
             </view>

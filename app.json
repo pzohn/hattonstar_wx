@@ -35,7 +35,9 @@
     "pages/shopcard/shopcard",
     
     "pages/shopcallme/shopcallme",
-    "pages/shareimage/shareimage"
+    "pages/shareimage/shareimage",
+    "pages/loginex/loginex"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

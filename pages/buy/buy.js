@@ -11,7 +11,7 @@ Page({
    */
   onLoad: function (options) {
     if (app.globalData.shopId != 0){
-      this.init(2);
+      this.init(0);
     }else{
       this.init(1);
     }

@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
 
   /**
@@ -11,6 +12,7 @@ Page({
     notice:'包含一大一小'
   },
   pay:function() {
+    app.globalData.phone = wx.getStorageSync('phone');
     wx.login({
       success: res => {
         var code = res.code;
@@ -34,12 +36,12 @@ Page({
         if (app.globalData.phone == '') {
           wx.showModal({
             title: '用户未登录',
-            content: '用户未登录或登录超时，请重新登录',
+            content: '用户未登录，请重新登录',
             confirmText: '重新登录',
             success: function (res) {
               if (res.confirm) {
-                wx.redirectTo({
-                  url: '../login/login',
+                wx.navigateTo({
+                  url: '../loginex/loginex',
                 })
               }
             }
@@ -86,6 +88,19 @@ Page({
                     console.log(app.globalData.phone)
                     console.log(app.globalData.shop_id_wx)
                     console.log(app.globalData.name)
+
+                    wx.showModal({
+                      title: '支付成功',
+                      content: '支付成功，欢迎开启哈顿星球畅玩之旅!',
+                      success: function (res) {
+                        if (res.confirm) {
+                          wx.redirectTo({
+                            url: '../information/information',
+                          })
+                        }
+                      }
+                    })
+                    
                     return
                     wx.request({
                       url: 'https://www.hattonstar.com/onPay',
