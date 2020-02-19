@@ -276,7 +276,7 @@ Page({
     }
     else
     {
-      app.globalData.shopId = shopID;
+      app.globalData.shop_id = shopID;
     }
   },
 

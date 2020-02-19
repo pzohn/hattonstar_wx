@@ -86,22 +86,8 @@ Page({
                     console.log(app.globalData.body)
                     console.log(app.globalData.detailid)
                     console.log(app.globalData.phone)
-                    console.log(app.globalData.shop_id_wx)
+                    console.log(app.globalData.shop_id)
                     console.log(app.globalData.name)
-
-                    wx.showModal({
-                      title: '支付成功',
-                      content: '支付成功，欢迎开启哈顿星球畅玩之旅!',
-                      success: function (res) {
-                        if (res.confirm) {
-                          wx.redirectTo({
-                            url: '../information/information',
-                          })
-                        }
-                      }
-                    })
-                    
-                    return
                     wx.request({
                       url: 'https://www.hattonstar.com/onPay',
                       data: {
@@ -109,7 +95,7 @@ Page({
                         body: app.globalData.body,
                         detail_id: app.globalData.detailid,
                         phone: app.globalData.phone,
-                        shop_id: app.globalData.shop_id_wx,
+                        shop_id: app.globalData.shop_id,
                         name: app.globalData.name
                       },
                       method: 'POST',
@@ -132,9 +118,19 @@ Page({
                                 method: 'POST',
                                 success: function (res) {
                                   if (res.data.PHONE != "") {
-                                    var app = getApp();
                                     app.globalData.carddesc = res.data.CARDDESC;
                                     app.globalData.cardnum = res.data.CARDNUM;
+                                    wx.showModal({
+                                      title: '支付成功',
+                                      content: '支付成功，欢迎开启哈顿星球畅玩之旅!',
+                                      success: function (res) {
+                                        if (res.confirm) {
+                                          wx.redirectTo({
+                                            url: '../information/information',
+                                          })
+                                        }
+                                      }
+                                    })
                                   }
                                 },
                                 fail: function (res) {
@@ -150,18 +146,6 @@ Page({
                                     }
                                   })
                                   return;
-                                }
-                              })
-
-                              wx.showModal({
-                                title: '支付成功',
-                                content: '支付成功，欢迎开启哈顿星球畅玩之旅!',
-                                success: function (res) {
-                                  if (res.confirm) {
-                                    wx.redirectTo({
-                                      url: '../information/information',
-                                    })
-                                  }
                                 }
                               })
                             },
