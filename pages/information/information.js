@@ -33,6 +33,12 @@ Page({
     })
   },
 
+  buy: function () {
+    wx.navigateTo({
+      url: '../buy/buy',
+    })
+  },
+
   edit:function(){
     wx.navigateTo({
       url: '../edit/edit',
