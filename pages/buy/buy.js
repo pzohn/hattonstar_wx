@@ -10,6 +10,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var shareId = options.shareid;
+    console.log(options)
+    if (shareId == undefined) {
+
+    }
+    else {
+      app.globalData.shop_id = shareId;
+    }
+    var shopID = options.shop;
+    if (shopID == undefined) {
+      app.globalData.shop_id = 0;
+    }
+    else {
+      app.globalData.shop_id = shopID;
+    }
     if (app.globalData.shopId != 0){
       this.init(0);
     }else{
