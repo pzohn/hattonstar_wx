@@ -10,23 +10,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var shareId = options.shareid;
-    console.log(options)
-    if (shareId == undefined) {
-
-    }
-    else {
-      app.globalData.shop_id = shareId;
+    let qrUrl = decodeURIComponent(options.q)
+    console.log(qrUrl);
+    if (qrUrl.indexOf("shareId=") != -1) {
+      var arr = qrUrl.split("shareId=");
+      var strId = arr[1];
+      app.globalData.shopId = strId;
     }
     var shopID = options.shop;
     if (shopID == undefined) {
       app.globalData.shop_id = 0;
     }
     else {
-      app.globalData.shop_id = shopID;
+      app.globalData.shop_id = shopID; 
     }
     if (app.globalData.shopId != 0){
-      this.init(0);
+      this.init(2);
     }else{
       this.init(1);
     }

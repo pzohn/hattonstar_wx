@@ -52,7 +52,7 @@ App({
     cardtype:0,
     cardprice:0,
     playnum:0,
-    shopId:0,
+    shopId: 0, 
     shop_id:0,
     shop_phone:'',
     shop_name:'',

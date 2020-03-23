@@ -95,7 +95,7 @@ Page({
                         body: app.globalData.body,
                         detail_id: app.globalData.detailid,
                         phone: app.globalData.phone,
-                        shop_id: app.globalData.shop_id,
+                        shop_id: app.globalData.shopId,
                         name: app.globalData.name
                       },
                       method: 'POST',
