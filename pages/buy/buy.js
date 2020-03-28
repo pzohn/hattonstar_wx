@@ -52,6 +52,7 @@ Page({
           object.playtype = res.data[i].playtype;
           object.palynum = res.data[i].palynum;
           object.index = i;
+          object.parentfree = res.data[i].parentfree;
           cards[i] = object;
         }
         page.setData({ cards: cards})
@@ -121,7 +122,7 @@ Page({
   detail:function(e) {
     var card = this.data.cards[e.currentTarget.id];
     app.globalData.cardprice = card.price;
-    if (card.playtype == '半日场') {
+    if (card.playtype == '半日卡') {
       app.globalData.cardtype = 1
     }else{
       app.globalData.cardtype = 2
@@ -130,6 +131,7 @@ Page({
     app.globalData.body = card.title;
     app.globalData.detailid = card.id;
     app.globalData.imageNo = card.imageNo;
+    app.globalData.parentfree = card.parentfree;
     wx.redirectTo({
       url: '../card/card',
     })

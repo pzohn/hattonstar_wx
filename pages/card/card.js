@@ -9,7 +9,7 @@ Page({
     cardprice:0,
     cardtime:'',
     playnum:0,
-    notice:'包含一大一小'
+    notice:''
   },
   pay:function() {
     app.globalData.phone = wx.getStorageSync('phone');
@@ -201,7 +201,6 @@ Page({
   onLoad: function (options) {
     var app = getApp();
     var imageNo = app.globalData.imageNo;
-    console.log(app.globalData.cardtype)
     var type = app.globalData.cardtype;
     var typetime = '';
     if (type == 1) {
@@ -216,25 +215,14 @@ Page({
       imageName: name, cardprice: app.globalData.cardprice,
       playnum: app.globalData.playnum, cardtime: typetime
     });
-    var detail_id = app.globalData.detailid;
-    if (detail_id == 23 || detail_id == 24){
-      this.setData({ notice:'此卡包含一个大人一个小孩',
-        cardtime: '9:00-17:30 节假日使用'});
-    }
-    else if (detail_id == 28 || detail_id == 29) {
-      this.setData({ notice: '此卡包含两个大人一个小孩',
-        cardtime: '9:00-17:30 节假日使用'});
-    }
-    else if (detail_id == 30 || detail_id == 31) {
-      this.setData({ notice: '此卡包含三个大人一个小孩',
-        cardtime: '9:00-17:30 节假日使用' });
-    }
-    else if (detail_id == 32) {
-      this.setData({ notice: '此卡包含四个大人一个小孩',
-        cardtime: '9:00-17:30 节假日使用' });
-    }
-    else if (detail_id == 27) {
-      this.setData({cardtime: '9:00-17:30 节假日使用'});
+    if (app.globalData.parentfree == 1){
+      this.setData({
+        notice: '此卡包含一个大人一个小孩'
+      });
+    }else{
+      this.setData({
+        notice: '此卡仅包含一个小孩'
+      });
     }
   },
 
