@@ -48,15 +48,15 @@ Page({
       });
       return;
     }
-    if (e.detail.value.password != e.detail.value.repeatpwd)
-    {
-      wx.showModal({
-        title: '错误提示',
-        content: '密码输入的不一致，请重新输入！',
-        showCancel: false
-      });
-      return;
-    }
+    // if (e.detail.value.password != e.detail.value.repeatpwd)
+    // {
+    //   wx.showModal({
+    //     title: '错误提示',
+    //     content: '密码输入的不一致，请重新输入！',
+    //     showCancel: false
+    //   });
+    //   return;
+    // }
     wx.request({
       url: 'https://www.hattonstar.com/user/save',
       data: {
@@ -90,15 +90,18 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-                if (app.globalData.goto_flag == 0){
-                  wx.redirectTo({
-                    url: '../login/login',
-                  })
-                }else{
-                    wx.redirectTo({
-                      url: '../loginnew/loginnew',
+                // if (app.globalData.goto_flag == 0){
+                //   wx.redirectTo({
+                //     url: '../login/login',
+                //   })
+                // }else{
+                //     wx.redirectTo({
+                //       url: '../loginnew/loginnew',
+                //     })
+                // }
+                wx.redirectTo({
+                    url: '../loginex/loginex',
                     })
-                }
               }
             }
           })

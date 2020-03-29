@@ -6,7 +6,7 @@
     <view class= "title">账号:</view>
     <view class="num"><input bindinput="accountInput" placeholder=" 手机号 " placeholder-style="color:#999999;" /></view>
   </view>
-  <view class="hr"></view>
+  <!-- <view class="hr"></view>
   <view class="pass">
     <view class="title">密码:</view>
     <view class="num"><input bindinput="pwdBlur" placeholder=" 请输入密码" password placeholder-style="color:#999999;" /></view>
@@ -14,7 +14,7 @@
   <view class="hr"></view>
   <view class="forget" bindtap='find'>
     <text>忘记密码</text>
-  </view>
+  </view> -->
   <view class="button">
       <button class="btn" disabled="{{disabled}}" bindtap="login">登录</button>
       <button class="btn1" bindtap="register">注册</button>

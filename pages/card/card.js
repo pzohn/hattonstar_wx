@@ -82,84 +82,94 @@ Page({
                 }
                 else{
                   if (code) {
-                    console.log(code)
-                    console.log(app.globalData.body)
-                    console.log(app.globalData.detailid)
-                    console.log(app.globalData.phone)
-                    console.log(app.globalData.shop_id)
-                    console.log(app.globalData.name)
-                    wx.request({
-                      url: 'https://www.hattonstar.com/onPay',
-                      data: {
-                        js_code: code,
-                        body: app.globalData.body,
-                        detail_id: app.globalData.detailid,
-                        phone: app.globalData.phone,
-                        shop_id: app.globalData.shopId,
-                        name: app.globalData.name
-                      },
-                      method: 'POST',
+                    var title = '小朋友:' + app.globalData.name;
+                    var content = '确认购买：' + app.globalData.body;
+                    wx.showModal({
+                      title: title,
+                      content: content,
                       success: function (res) {
-                        console.log(res);
-                        wx.requestPayment(
-                          {
-                            'timeStamp': res.data.timeStamp,
-                            'nonceStr': res.data.nonceStr,
-                            'package': res.data.package,
-                            'signType': 'MD5',
-                            'paySign': res.data.paySign,
-                            'success': function (res) {
+                        if (res.confirm) {
+                          // console.log(code)
+                          // console.log(app.globalData.body)
+                          // console.log(app.globalData.detailid)
+                          // console.log(app.globalData.phone)
+                          // console.log(app.globalData.shop_id)
+                          // console.log(app.globalData.name)
+                          wx.request({
+                            url: 'https://www.hattonstar.com/onPay',
+                            data: {
+                              js_code: code,
+                              body: app.globalData.body,
+                              detail_id: app.globalData.detailid,
+                              phone: app.globalData.phone,
+                              shop_id: app.globalData.shopId,
+                              name: app.globalData.name
+                            },
+                            method: 'POST',
+                            success: function (res) {
+                              console.log(res);
+                              wx.requestPayment(
+                                {
+                                  'timeStamp': res.data.timeStamp,
+                                  'nonceStr': res.data.nonceStr,
+                                  'package': res.data.package,
+                                  'signType': 'MD5',
+                                  'paySign': res.data.paySign,
+                                  'success': function (res) {
 
-                              wx.request({
-                                url: 'https://www.hattonstar.com/onGetUpdateResult',
-                                data: {
-                                  PHONE: app.globalData.phone
-                                },
-                                method: 'POST',
-                                success: function (res) {
-                                  if (res.data.PHONE != "") {
-                                    app.globalData.carddesc = res.data.CARDDESC;
-                                    app.globalData.cardnum = res.data.CARDNUM;
-                                    wx.showModal({
-                                      title: '支付成功',
-                                      content: '支付成功，欢迎开启哈顿星球畅玩之旅!',
+                                    wx.request({
+                                      url: 'https://www.hattonstar.com/onGetUpdateResult',
+                                      data: {
+                                        PHONE: app.globalData.phone
+                                      },
+                                      method: 'POST',
                                       success: function (res) {
-                                        if (res.confirm) {
-                                          wx.redirectTo({
-                                            url: '../information/information',
+                                        if (res.data.PHONE != "") {
+                                          app.globalData.carddesc = res.data.CARDDESC;
+                                          app.globalData.cardnum = res.data.CARDNUM;
+                                          wx.showModal({
+                                            title: '支付成功',
+                                            content: '支付成功，欢迎开启哈顿星球畅玩之旅!',
+                                            success: function (res) {
+                                              if (res.confirm) {
+                                                wx.redirectTo({
+                                                  url: '../information/information',
+                                                })
+                                              }
+                                            }
                                           })
                                         }
+                                      },
+                                      fail: function (res) {
+                                        wx.showModal({
+                                          title: '错误提示',
+                                          content: '服务器无响应，请重新登录',
+                                          success: function (res) {
+                                            if (res.confirm) {
+                                              wx.redirectTo({
+                                                url: '../login/login',
+                                              })
+                                            }
+                                          }
+                                        })
+                                        return;
                                       }
                                     })
+                                  },
+                                  'fail': function (res) {
+                                    console.log(2);
+                                  },
+                                  'complete': function (res) {
                                   }
-                                },
-                                fail: function (res) {
-                                  wx.showModal({
-                                    title: '错误提示',
-                                    content: '服务器无响应，请重新登录',
-                                    success: function (res) {
-                                      if (res.confirm) {
-                                        wx.redirectTo({
-                                          url: '../login/login',
-                                        })
-                                      }
-                                    }
-                                  })
-                                  return;
-                                }
-                              })
+                                })
                             },
-                            'fail': function (res) {
-                              console.log(2);
-                            },
-                            'complete': function (res) {
+                            fail: function (res) {
+                              console.log(res);
                             }
                           })
-                      },
-                      fail: function (res) {
-                        console.log(res);
+                        }
                       }
-                    })
+                    });
                   }
                 }
               }

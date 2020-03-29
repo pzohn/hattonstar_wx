@@ -13,20 +13,20 @@ Page({
   },
 
   register:function(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../registor/registor',
     })
   },
 
   login:function(){
-    if (this.data.password == "")
-    {
-      wx.showModal({
-        title: '错误提示',
-        content: '密码不能为空!',
-      });
-      return;
-    }
+    // if (this.data.password == "")
+    // {
+    //   wx.showModal({
+    //     title: '错误提示',
+    //     content: '密码不能为空!',
+    //   });
+    //   return;
+    // }
     var phone = this.data.account;
     var myThis = this;
     wx.request({
@@ -45,7 +45,7 @@ Page({
             confirmText: '注册',
             success: function (res) {
               if (res.confirm) {
-                wx.navigateTo({
+                wx.redirectTo({
                   url: '../registor/registor',
                 })
               }
