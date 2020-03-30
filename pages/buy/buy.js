@@ -11,7 +11,6 @@ Page({
    */
   onLoad: function (options) {
     let qrUrl = decodeURIComponent(options.q)
-    console.log(qrUrl);
     if (qrUrl.indexOf("shareId=") != -1) {
       var arr = qrUrl.split("shareId=");
       var strId = arr[1];

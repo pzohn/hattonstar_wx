@@ -49,6 +49,7 @@ Page({
           return;
         }
         if (app.globalData.phone != '') {
+          console.log(app.globalData.phone)
           wx.request({
             url: 'https://www.hattonstar.com/onGetUpdateResult',
             data: {
@@ -56,6 +57,22 @@ Page({
             },
             method: 'POST',
             success: function (res) {
+              console.log(res)
+              if (res.data == -1){
+                wx.showModal({
+                  title: '用户未注册',
+                  content: '用户未注册，请先注册',
+                  confirmText: '注册',
+                  success: function (res) {
+                    if (res.confirm) {
+                      wx.redirectTo({
+                        url: '../registor/registor',
+                      })
+                    }
+                  }
+                });
+                return;
+              }
               if (res.data.PHONE != "") {
                 app.globalData.carddesc = res.data.CARDDESC;
                 app.globalData.cardnum = res.data.CARDNUM;
