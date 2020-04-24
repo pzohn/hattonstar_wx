@@ -82,22 +82,22 @@ Page({
                 app.globalData.mother = res.data.MOTHER;
                 app.globalData.address = res.data.ADDRESS;
                 app.globalData.cardnum = res.data.CARDNUM;
-                if (app.globalData.cardnum != 0) {
-                  wx.showModal({
-                    title: '游玩卡有剩余',
-                    content: '游玩卡还有剩余次数，请消费完再购买',
-                    confirmText: '返回刷新',
-                    success: function (res) {
-                      if (res.confirm) {
-                        wx.redirectTo({
-                          url: '../information/information',
-                        })
-                      }
-                    }
-                  });
-                  return;
-                }
-                else{
+                // if (app.globalData.cardnum != 0) {
+                //   wx.showModal({
+                //     title: '游玩卡有剩余',
+                //     content: '游玩卡还有剩余次数，请消费完再购买',
+                //     confirmText: '返回刷新',
+                //     success: function (res) {
+                //       if (res.confirm) {
+                //         wx.redirectTo({
+                //           url: '../information/information',
+                //         })
+                //       }
+                //     }
+                //   });
+                //   return;
+                // }
+                // else{
                   if (code) {
                     var title = '小朋友:' + app.globalData.name;
                     var content = '确认购买：' + app.globalData.body;
@@ -188,7 +188,7 @@ Page({
                       }
                     });
                   }
-                }
+                // }
               }
             },
             fail: function (res) {
@@ -226,7 +226,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var app = getApp();
     var imageNo = app.globalData.imageNo;
     var type = app.globalData.cardtype;
     var typetime = '';
@@ -258,6 +257,61 @@ Page({
    */
   onReady: function () {
 
+  },
+
+  me: function () {
+    app.globalData.phone = wx.getStorageSync('phone');
+    if (app.globalData.phone == '') {
+      wx.showModal({
+        title: '用户未登录',
+        content: '用户未登录，请重新登录',
+        confirmText: '重新登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../loginex/loginex',
+            })
+          }
+        }
+      });
+      return;
+    }
+    wx.request({
+      url: 'https://www.hattonstar.com/onGetUpdateResult',
+      data: {
+        PHONE: app.globalData.phone
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.PHONE != "") {
+          app.globalData.carddesc = res.data.CARDDESC;
+          app.globalData.cardnum = res.data.CARDNUM;
+          app.globalData.name = res.data.NAME;
+          app.globalData.age = res.data.AGE;
+          app.globalData.father = res.data.FATHER;
+          app.globalData.mother = res.data.MOTHER;
+          app.globalData.address = res.data.ADDRESS;
+          app.globalData.cardnum = res.data.CARDNUM;
+          wx.redirectTo({
+            url: '../information/information',
+          })
+        }
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: '错误提示',
+          content: '服务器无响应，请重新登录',
+          success: function (res) {
+            if (res.confirm) {
+              wx.redirectTo({
+                url: '../login/login',
+              })
+            }
+          }
+        })
+        return;
+      }
+    })
   },
 
   /**

@@ -25,6 +25,7 @@
 
 
 <view class="button">
+    <button class="btn2" type="primary" bindtap="me">我的</button>
     <button class="btn" type="primary" bindtap="rechoose">重新选择</button>
     <button class="btn1" type="primary" bindtap="pay">付款</button>
 </view>
