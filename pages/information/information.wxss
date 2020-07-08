@@ -22,25 +22,25 @@
 }
 
 .btn{
-    width: 40%;
+    width: 30%;
     color: #999999;
     margin-top:6px; 
 }
 
 .btn1{
-    width: 40%;
+    width: 30%;
     color: #999999;
     margin-top:6px; 
 }
 
 .btn2{
-    width: 40%;
+    width: 30%;
     color: #999999;
     margin-top:6px; 
 }
 
 .btn3{
-    width: 40%;
+    width: 30%;
     color: #999999;
     margin-top:6px; 
 }

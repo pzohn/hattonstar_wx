@@ -17,7 +17,7 @@
      <text>孩子年龄：</text> 
      <input type="number" name="age" value= '{{age}}'/>
   </view>
-  <view class="item">
+  <!-- <view class="item">
      <text>父亲姓名：</text>
      <input type="text" name="father" value= '{{father}}'/>
   </view>
@@ -28,6 +28,14 @@
   <view class="item">
      <text>家庭住址：</text>
      <input type="text" name="address" value= '{{address}}'/>
+  </view> -->
+    <view class="item">
+     <text>学校：</text>
+     <input type="text" name="school" value= '{{school}}'/> 
+  </view>
+  <view class="item">
+     <text>班级：</text>
+     <input type="text" name="scclass" value= '{{scclass}}'/>
   </view>
 
   <view class="button">

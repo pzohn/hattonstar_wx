@@ -1,4 +1,4 @@
-// pages/edit/edit.js
+var app = getApp();
 Page({
 
   /**
@@ -9,7 +9,6 @@ Page({
     phone:''
   },
   formSubmit: function(e){
-    console.log(e);
     wx.request({
       url: 'https://www.hattonstar.com/user/save',
       data: {
@@ -17,9 +16,11 @@ Page({
         PHONE: this.data.phone,
         NAME: e.detail.value.name,
         AGE: e.detail.value.age,
-        FATHER: e.detail.value.father,
-        MOTHER: e.detail.value.mother,
-        ADDRESS: e.detail.value.address,
+        // FATHER: e.detail.value.father,
+        // MOTHER: e.detail.value.mother,
+        // ADDRESS: e.detail.value.address,
+        SCHOOL: e.detail.value.school,
+        CLASS: e.detail.value.scclass,
         CARDID: 0,
         CARDNUM: 0
       },
@@ -40,8 +41,12 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
+                app.globalData.name = e.detail.value.name;
+                app.globalData.age = e.detail.value.age;
+                app.globalData.school = e.detail.value.school;
+                app.globalData.scclass = e.detail.value.scclass;
                 wx.redirectTo({
-                  url: '../login/login',
+                  url: '../information/information',
                 })
               }
             }
@@ -64,6 +69,8 @@ Page({
     this.setData({ father: app.globalData.father });
     this.setData({ mother: app.globalData.mother });
     this.setData({ address: app.globalData.address });
+    this.setData({ school: app.globalData.school });
+    this.setData({ scclass: app.globalData.scclass });
   },
 
   /**

@@ -13,6 +13,8 @@ Page({
     age:'',
     father:'',
     mother:'',
+    school:'',
+    scclass:'',
     address:'',
     carddesc:'无',
     cardnum:0
@@ -62,13 +64,14 @@ Page({
       success: function (res) {
         if (res.data.PHONE != "") {
           app.globalData.carddesc = res.data.CARDDESC;
-          app.globalData.cardnum = res.data.CARDNUM;
           app.globalData.name = res.data.NAME;
           app.globalData.age = res.data.AGE;
           app.globalData.father = res.data.FATHER;
           app.globalData.mother = res.data.MOTHER;
           app.globalData.address = res.data.ADDRESS;
           app.globalData.cardnum = res.data.CARDNUM;
+          app.globalData.school = res.data.SCHOOL;
+          app.globalData.scclass = res.data.CLASS;
           wx.redirectTo({
             url: '../information/information',
           })
@@ -105,10 +108,9 @@ Page({
     this.setData({ father: app.globalData.father });
     this.setData({ mother: app.globalData.mother });
     this.setData({ address: app.globalData.address });
+    this.setData({ school: app.globalData.school });
+    this.setData({ scclass: app.globalData.scclass });
     this.setData({ cardnum: app.globalData.cardnum });
-    console.log(app.globalData.cardnum);
-    console.log(this.data.cardnum);
-
     if (app.globalData.cardnum > 0) {
       this.setData({ disabled: true, btnstate: "default",
         disabled1: false, btnstate1: "primary"

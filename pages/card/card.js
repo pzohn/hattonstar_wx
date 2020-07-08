@@ -75,7 +75,6 @@ Page({
               }
               if (res.data.PHONE != "") {
                 app.globalData.carddesc = res.data.CARDDESC;
-                app.globalData.cardnum = res.data.CARDNUM;
                 app.globalData.name = res.data.NAME;
                 app.globalData.age = res.data.AGE;
                 app.globalData.father = res.data.FATHER;
@@ -285,13 +284,15 @@ Page({
       success: function (res) {
         if (res.data.PHONE != "") {
           app.globalData.carddesc = res.data.CARDDESC;
-          app.globalData.cardnum = res.data.CARDNUM;
           app.globalData.name = res.data.NAME;
           app.globalData.age = res.data.AGE;
           app.globalData.father = res.data.FATHER;
           app.globalData.mother = res.data.MOTHER;
           app.globalData.address = res.data.ADDRESS;
           app.globalData.cardnum = res.data.CARDNUM;
+          app.globalData.school = res.data.SCHOOL;
+          app.globalData.scclass = res.data.CLASS;
+          console.log(app.globalData.cardnum)
           wx.redirectTo({
             url: '../information/information',
           })

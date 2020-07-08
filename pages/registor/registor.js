@@ -70,7 +70,9 @@ Page({
         MOTHER: e.detail.value.mother,
         ADDRESS: e.detail.value.address,
         CARDID:0,
-        CARDNUM:0
+        CARDNUM:0,
+        SCHOOL:e.detail.value.school,
+        CLASS:e.detail.value.scclass
       },
       method: 'POST',
       success: function (res) {

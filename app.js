@@ -45,6 +45,8 @@ App({
     mother:'',
     address:'',
     carddesc:'',
+    school:'',
+    scclass:'',
     cardnum:0,
     detailid:0,
     body:'',

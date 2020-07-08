@@ -82,6 +82,8 @@ Page({
             app.globalData.carddesc = res.data.CARDDESC;
             app.globalData.cardnum = res.data.CARDNUM;
             app.globalData.authority_id = res.data.AUTHORITY;
+            app.globalData.school = res.data.SCHOOL;
+            app.globalData.scclass = res.data.CLASS;
             if (app.globalData.shop_id == 0){
               wx.navigateTo({
                 url: '../information/information',
