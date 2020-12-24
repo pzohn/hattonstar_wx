@@ -80,6 +80,7 @@ App({
     goto_flag:0,
     postcard_code_url: '',
     authority_id: 0,
-    parentfree:0
+    parentfree:0,
+    codecard:''
   }
 })

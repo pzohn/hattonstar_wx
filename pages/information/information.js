@@ -17,7 +17,8 @@ Page({
     scclass:'',
     address:'',
     carddesc:'无',
-    cardnum:0
+    cardnum:0,
+    codecard:''
   },
 
   /**
@@ -72,6 +73,7 @@ Page({
           app.globalData.cardnum = res.data.CARDNUM;
           app.globalData.school = res.data.SCHOOL;
           app.globalData.scclass = res.data.CLASS;
+          app.globalData.codecard = res.data.CODECARD;
           wx.redirectTo({
             url: '../information/information',
           })
@@ -111,6 +113,7 @@ Page({
     this.setData({ school: app.globalData.school });
     this.setData({ scclass: app.globalData.scclass });
     this.setData({ cardnum: app.globalData.cardnum });
+    this.setData({ codecard: app.globalData.codecard });
     if (app.globalData.cardnum > 0) {
       this.setData({ disabled: true, btnstate: "default",
         disabled1: false, btnstate1: "primary"

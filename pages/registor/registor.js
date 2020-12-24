@@ -40,6 +40,14 @@ Page({
       });
       return;
     }
+    if (e.detail.value.codecard.replace(/\s+/g, '') == "") {
+      wx.showModal({
+        title: '错误提示',
+        content: '请填写孩子身份证！',
+        showCancel: false
+      });
+      return;
+    }
     if (e.detail.value.age.replace(/\s+/g, '') == "") {
       wx.showModal({
         title: '错误提示',
@@ -69,6 +77,7 @@ Page({
         FATHER: e.detail.value.father,
         MOTHER: e.detail.value.mother,
         ADDRESS: e.detail.value.address,
+        CODECARD: e.detail.value.codecard,
         CARDID:0,
         CARDNUM:0,
         SCHOOL:e.detail.value.school,

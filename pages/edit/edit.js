@@ -6,7 +6,8 @@ Page({
    */
   data: {
     sex: 'Girl',
-    phone:''
+    phone:'',
+    codecard:''
   },
   formSubmit: function(e){
     wx.request({
@@ -21,6 +22,7 @@ Page({
         // ADDRESS: e.detail.value.address,
         SCHOOL: e.detail.value.school,
         CLASS: e.detail.value.scclass,
+        CODECARD: e.detail.value.codecard,
         CARDID: 0,
         CARDNUM: 0
       },
@@ -45,6 +47,7 @@ Page({
                 app.globalData.age = e.detail.value.age;
                 app.globalData.school = e.detail.value.school;
                 app.globalData.scclass = e.detail.value.scclass;
+                app.globalData.codecard = e.detail.value.codecard;
                 wx.redirectTo({
                   url: '../information/information',
                 })
@@ -71,6 +74,7 @@ Page({
     this.setData({ address: app.globalData.address });
     this.setData({ school: app.globalData.school });
     this.setData({ scclass: app.globalData.scclass });
+    this.setData({ codecard: app.globalData.codecard });
   },
 
   /**

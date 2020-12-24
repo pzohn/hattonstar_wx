@@ -19,6 +19,9 @@
   <view class="item">
      <input type="text" name="scclass" placeholder="班级(参营必填)" placeholder-class="holder" />
   </view>
+  <view class="item">
+     <input type="text" name="codecard" placeholder="身份证(必填)" placeholder-class="holder" />
+  </view>
   <view class="zuhe">
     <view class="age">
       <input type="number" name="age" placeholder="年龄(必填)" placeholder-class="holder" />

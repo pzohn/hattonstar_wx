@@ -10,6 +10,10 @@
      <input type="text" name="name" value= '{{name}}'/>
   </view>
   <view class="item">
+     <text>身份证：</text> 
+     <input type="text" name="codecard" value= '{{codecard}}'/>
+  </view>
+  <view class="item">
      <text>孩子性别：</text> 
      <text>{{sex}}</text>
   </view>

@@ -10,6 +10,10 @@
      <text>{{name}}</text>
   </view>
   <view class="item">
+     <text>身份证：</text> 
+     <text>{{codecard}}</text>
+  </view>
+  <view class="item">
      <text>孩子性别：</text> 
      <text>{{sex}}</text>
   </view>
