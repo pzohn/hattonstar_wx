@@ -111,7 +111,8 @@ Page({
                           // console.log(app.globalData.phone)
                           // console.log(app.globalData.shop_id)
                           // console.log(app.globalData.name)
-                          if (app.globalData.codecard == ''){
+                          // if (app.globalData.codecard == ''){
+                          if (0){
                             wx.showModal({
                               content: '确认身份证号',
                               success: function (res) {
